@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "LeetCode Streak Tracker",
+    "version": "1.0.0",
+    "description": "Sends your LeetCode streak data to your backend",
+    "permissions": [
+        "storage",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://leetcode.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://leetcode.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "LeetCode Streak Tracker"
+    }
+}
+
